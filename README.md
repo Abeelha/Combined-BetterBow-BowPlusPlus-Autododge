@@ -170,3 +170,17 @@ Using the MHWS Editor's scripting API avoids this entirely because it operates o
 - [AutoDodge (auto_DualBlades_Dodge)](https://www.nexusmods.com/monsterhunterwilds/mods/32) by its original author
 - [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/32) by Synthlight
 - Merge work and repo by Abeelha
+
+---
+
+## Donation
+
+If this saved your sanity, consider buying me a coffee:
+
+```
+Bitcoin  (BTC)  bc1qk5jlu7hk05uvfpt33pgeaf78lzvnkgjyur8q04
+Ethereum (ETH)  0xd8834fc5330896405EC1A5db4bE997093E0408A7
+USDC     (ETH)  0xd8834fc5330896405EC1A5db4bE997093E0408A7
+```
+
+---
