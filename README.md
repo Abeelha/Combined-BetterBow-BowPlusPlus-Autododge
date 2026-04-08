@@ -93,11 +93,11 @@ All nested object data is preserved from Better Bow 10x, which means multi-locko
 <img width="2560" height="1440" alt="Cover" src="https://github.com/user-attachments/assets/355a10cd-3b9e-4f92-a3e9-4e3caeb7d009" />
 
 
-Pure QoL and survivability overhaul for Heavy Bowgun. No damage multipliers — focused on guard effectiveness, energy recovery, special ammo accessibility, and mobility. Bundles five community mods into a single install alongside a custom `Wp12GlobalActionParam.user.3` produced with MHWS Editor scripting.
+Pure QoL and survivability overhaul for Heavy Bowgun. No damage multipliers — focused on guard effectiveness, special ammo accessibility, and Wyvernheart uptime. Bundles five community mods into a single install alongside a custom `Wp12GlobalActionParam.user.3` produced with MHWS Editor scripting.
 
 ### Quick install (HBG)
 
-1. Run `scripts/merge_hbg.cs` in MHWS Editor against `Wp12GlobalActionParam.user.3` and save the output to `release/HBG/natives/STM/GameDesign/Player/ActionData/Wp12/GlobalParam/`.
+1. Run `scripts/merge_hbg.cs` in MHWS Editor against the vanilla `Wp12GlobalActionParam.user.3` and save the output to `release/HBG/natives/STM/GameDesign/Player/ActionData/Wp12/GlobalParam/`.
 2. Download `release/HBG/`.
 3. Place its contents into your Fluffy Mod Manager mods directory as a single mod.
 4. Disable the standalone versions of all bundled mods listed below.
@@ -113,79 +113,47 @@ Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/93)
 | [Bowgun Critical Distance Fixed](https://www.nexusmods.com/monsterhunterwilds/mods/3005) | `PlayerSkillParam.user.3` binary | Zero minimum critical distance — point blank shots deal full damage |
 | [BG Ammo Tweaks](https://www.nexusmods.com/monsterhunterwilds/mods/3370) | Lua (15 cap + All SL Maxed) | Enables all ammo types on HBG, sets 15 round capacity, maxes shell levels |
 | [Full-Auto Bowguns](https://www.nexusmods.com/monsterhunterwilds/mods/1126) | Lua | Hold trigger to auto-fire and auto-reload |
-| [More Gatlin Fun](https://www.nexusmods.com/monsterhunterwilds/mods/1012) | Superseded by merge script | Original set MinUseEnergy to 0.01; our script uses 0.1 for balance |
+| [More Gatlin Fun](https://www.nexusmods.com/monsterhunterwilds/mods/1012) | Superseded by merge script | Original set Wyvernheart cost to 0.01 and also modified energy regen; our script uses 1.0 and leaves all regen at true vanilla |
 
 ### What the merge script changes (Wp12GlobalActionParam)
 
-All changes are QoL only — no damage multipliers.
+All changes are QoL only — no damage multipliers. Energy recovery parameters are left at true vanilla.
 
 #### Guard / Shield
 
 | Parameter | Vanilla | Ours |
 |---|---|---|
-| GuardPower_S | 14 | 35 |
-| GuardPower_M | 20 | 50 |
-| GuardDamageReduceRate_S | 0 | 0.6 |
-| GuardDamageReduceRate_M | 0.1 | 0.7 |
-| GuardDamageReduceRate_L | 0.2 | 0.8 |
-| GuardDamageReduceRate_Tech | 0 | 0.6 |
-| GuardDamageReduceRate_Tech_M | 0.2 | 0.8 |
-
-#### Ammo capacity
-
-| Parameter | Vanilla | Ours |
-|---|---|---|
-| AmmoLimit_Normal | 7 | 15 |
-| AmmoLimit_Penetrate | 3 | 15 |
-| AmmoLimit_ShotGun | 5 | 15 |
-
-#### Energy / Wyvernheart recovery
-
-| Parameter | Vanilla | Ours |
-|---|---|---|
-| Energy_AutoRecoverSpeed | 100 | 500 |
-| Energy_AutoRecoverReserveRate | 0.2 | 0.01 |
-| Energy_ShotGunShootRecover | 2.4 | 20 |
-| Energy_StealthShotRecover | 30 | 100 |
-| Energy_CustomEfficiency_Fast | 1.1 | 2.0 |
-| Energy_CustomEfficiency_Slow | 0.9 | 1.5 |
+| GuardPower_S | 14 | 25 |
+| GuardPower_M | 20 | 35 |
+| GuardDamageReduceRate_S | 0% | 40% |
+| GuardDamageReduceRate_M | 10% | 50% |
+| GuardDamageReduceRate_L | 20% | 60% |
+| GuardDamageReduceRate_Tech | 0% | 40% |
+| GuardDamageReduceRate_Tech_M | 20% | 60% |
 
 #### Gatling (Wyvernheart fire mode)
 
+All regen parameters left at true vanilla. Only the per-shot cost is reduced so Wyvernheart lasts longer per activation. Note: MoreGatlinFun also changed energy regen speed and fire interval — the merge script resets those back to true vanilla values.
+
 | Parameter | Vanilla | MoreGatlinFun | Ours |
 |---|---|---|---|
-| GatlingBullet MinUseEnergy | 2.5 | 0.01 | 0.1 |
-| GatlingBullet_ShootInterval | 0.1 | — | 0.085 |
+| GatlingBullet MinUseEnergy | 2.5 | 0.01 | 1.0 |
 
 #### Special ammo — energy cost & QoL
 
 | Parameter | Vanilla | Ours |
 |---|---|---|
-| EnergyLaser MinUseEnergy | 20 | 8 |
-| ParryBullet MinUseEnergy | 15 | 5 |
-| ParryBulletRange | 7 | 12 |
-| EnergyGrenade MinUseEnergy | 15 | 5 |
-| EnergyGrenadeBullet_SpreadRange | 8 | 12 |
-| EnergyGrenadeBullet_MaxRange | 15 | 20 |
-| WeakPointSnipeBullet_MaxBulletNum | 3 | 5 |
-| WeakPointSnipeBullet_AddBulletTime | 23 | 12 |
-| RyuugekiChargeTimer | 1.5 | 0.8 |
-| Ryuugeki_Range | 6.5 | 10 |
+| EnergyLaser MinUseEnergy | 20 | 12 |
+| ParryBullet MinUseEnergy | 15 | 8 |
+| ParryBulletRange | 7 | 9 |
+| EnergyGrenade MinUseEnergy | 15 | 8 |
+| EnergyGrenadeBullet_SpreadRange | 8 | 10 |
+| EnergyGrenadeBullet_MaxRange | 15 | 18 |
+| WeakPointSnipeBullet_MaxBulletNum | 3 | 4 |
+| WeakPointSnipeBullet_AddBulletTime | 23s | 18s |
+| RyuugekiChargeTimer | 1.5s | 1.1s |
+| Ryuugeki_Range | 6.5 | 8 |
 
-#### Parry (Focus Blast) energy recovery on hit
-
-| Level | HitRecover vanilla → ours | SuccessRecover vanilla → ours |
-|---|---|---|
-| 0 | 10 → 20 | 25 → 60 |
-| 1 | 10 → 20 | 25 → 60 |
-| 2 | 15 → 25 | 30 → 70 |
-| 3 | 20 → 30 | 35 → 80 |
-
-#### Mobility
-
-| Parameter | Vanilla | Ours |
-|---|---|---|
-| TurnSpeed | 400 | 600 |
 
 ---
 
@@ -238,7 +206,11 @@ This section documents the full process for anyone who wants to replicate it or 
 ### Prerequisites
 
 - [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/401) (Synthlight's RE Engine .user file editor)
+- [ree-pak-rs](https://github.com/eigeen/ree-pak-rs/releases) — CLI tool for extracting files from PAK archives
+- [MHWs.list](https://github.com/dtlnor/MonsterHunterWildsModding/blob/main/files/MHWs.list) by dtlnor — file name list required by ree-pak-rs to resolve Wilds paths
 - The source `.user.3` files from each mod you want to merge
+
+The vanilla `Wp12GlobalActionParam.user.3` can be extracted from `re_chunk_000.pak.patch_012.pak` using ree-pak-rs with the MHWs.list file. Credit to hero07911010 on NexusMods for documenting this extraction path.
 
 ### Step 1: Export each mod's data to JSON
 
@@ -283,6 +255,8 @@ Export the merged file using the same JSON export script and diff it against you
 
 ### Tools
 - [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/401) by Synthlight
+- [ree-pak-rs](https://github.com/eigeen/ree-pak-rs/releases) by eigeen — PAK extraction
+- [MHWs.list](https://github.com/dtlnor/MonsterHunterWildsModding/blob/main/files/MHWs.list) by dtlnor — Wilds file list for PAK extraction
 - Merge work and repo by Abeelha
 
 ---
