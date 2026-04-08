@@ -4,9 +4,8 @@ A collection of merged, conflict-free weapon overhauls for Monster Hunter Wilds.
 
 ---
 
-## Bow — Combined-BetterBow-Bow++-Autododge
+## [Bow — Combined-BetterBow-Bow++-Autododge](https://www.nexusmods.com/monsterhunterwilds/mods/4247)
 
-[Nexus Page](https://www.nexusmods.com/monsterhunterwilds/mods/4247)
 
 <img width="4847" height="3823" alt="Bow_1" src="https://github.com/user-attachments/assets/fe2c49a9-48c2-4d73-9f21-ff9b35ad0142" />
 
@@ -19,7 +18,7 @@ Merges [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) and [
 3. Disable standalone Better Bow and Bow Plus Plus to avoid conflicts.
 4. Enable Combined-BetterBow-Bow++.
 
-Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/1) and LooseFileLoader.
+Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/93)
 
 ### What is in the Bow merge
 
@@ -89,9 +88,10 @@ All nested object data is preserved from Better Bow 10x, which means multi-locko
 
 ---
 
-## HBG — Combined-HBG-Enhanced
+## [HBG — Combined-HBG-Enhanced](https://www.nexusmods.com/monsterhunterwilds/mods/4251)
 
-<!-- HBG_IMAGE_PLACEHOLDER — replace this comment with your screenshot embed -->
+<img width="2560" height="1440" alt="Cover" src="https://github.com/user-attachments/assets/355a10cd-3b9e-4f92-a3e9-4e3caeb7d009" />
+
 
 Pure QoL and survivability overhaul for Heavy Bowgun. No damage multipliers — focused on guard effectiveness, energy recovery, special ammo accessibility, and mobility. Bundles five community mods into a single install alongside a custom `Wp12GlobalActionParam.user.3` produced with MHWS Editor scripting.
 
@@ -103,7 +103,7 @@ Pure QoL and survivability overhaul for Heavy Bowgun. No damage multipliers — 
 4. Disable the standalone versions of all bundled mods listed below.
 5. Enable Combined-HBG-Enhanced.
 
-Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/1) and LooseFileLoader.
+Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/93)
 
 ### Bundled mods (HBG)
 
