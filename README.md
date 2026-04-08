@@ -93,31 +93,17 @@ All nested object data is preserved from Better Bow 10x, which means multi-locko
 <img width="2560" height="1440" alt="Cover" src="https://github.com/user-attachments/assets/355a10cd-3b9e-4f92-a3e9-4e3caeb7d009" />
 
 
-Pure QoL and survivability overhaul for Heavy Bowgun. No damage multipliers — focused on guard effectiveness, special ammo accessibility, and Wyvernheart uptime. Bundles five community mods into a single install alongside a custom `Wp12GlobalActionParam.user.3` produced with MHWS Editor scripting.
+Custom parameter overhaul for Heavy Bowgun. Focused on guard effectiveness, special ammo accessibility, and Wyvernheart uptime. No damage multipliers.
 
 ### Quick install (HBG)
 
 1. Run `scripts/merge_hbg.cs` in MHWS Editor against the vanilla `Wp12GlobalActionParam.user.3` and save the output to `release/HBG/natives/STM/GameDesign/Player/ActionData/Wp12/GlobalParam/`.
 2. Download `release/HBG/`.
 3. Place its contents into your Fluffy Mod Manager mods directory as a single mod.
-4. Disable the standalone versions of all bundled mods listed below.
-5. Enable Combined-HBG-Enhanced.
 
 Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/93)
 
-### Bundled mods (HBG)
-
-| Mod | Source | What it does |
-|---|---|---|
-| [Infinite Bowgun Ammo](https://www.nexusmods.com/monsterhunterwilds/mods/214) | `itemData.user.3` binary | All ammo types never deplete |
-| [Bowgun Critical Distance Fixed](https://www.nexusmods.com/monsterhunterwilds/mods/3005) | `PlayerSkillParam.user.3` binary | Zero minimum critical distance — point blank shots deal full damage |
-| [BG Ammo Tweaks](https://www.nexusmods.com/monsterhunterwilds/mods/3370) | Lua (15 cap + All SL Maxed) | Enables all ammo types on HBG, sets 15 round capacity, maxes shell levels |
-| [Full-Auto Bowguns](https://www.nexusmods.com/monsterhunterwilds/mods/1126) | Lua | Hold trigger to auto-fire and auto-reload |
-| [More Gatlin Fun](https://www.nexusmods.com/monsterhunterwilds/mods/1012) | Superseded by merge script | Original set Wyvernheart cost to 0.01 and also modified energy regen; our script uses 1.0 and leaves all regen at true vanilla |
-
 ### What the merge script changes (Wp12GlobalActionParam)
-
-All changes are QoL only — no damage multipliers. Energy recovery parameters are left at true vanilla.
 
 #### Guard / Shield
 
@@ -131,15 +117,14 @@ All changes are QoL only — no damage multipliers. Energy recovery parameters a
 | GuardDamageReduceRate_Tech | 0% | 40% |
 | GuardDamageReduceRate_Tech_M | 20% | 60% |
 
-#### Gatling (Wyvernheart fire mode)
+#### Gatling (Wyvernheart)
 
-All regen parameters left at true vanilla. Only the per-shot cost is reduced so Wyvernheart lasts longer per activation. Note: MoreGatlinFun also changed energy regen speed and fire interval — the merge script resets those back to true vanilla values.
+| Parameter | Vanilla | Ours |
+|---|---|---|
+| GatlingBullet MinUseEnergy | 2.5 | 1.0 |
+| Energy_AutoRecoverSpeed | 1.9 | 3.0 |
 
-| Parameter | Vanilla | MoreGatlinFun | Ours |
-|---|---|---|---|
-| GatlingBullet MinUseEnergy | 2.5 | 0.01 | 1.0 |
-
-#### Special ammo — energy cost & QoL
+#### Special ammo
 
 | Parameter | Vanilla | Ours |
 |---|---|---|
@@ -166,19 +151,9 @@ All regen parameters left at true vanilla. Only the per-shot cost is reduced so 
 │   │   └── natives/                 # Merged Wp11GlobalActionParam.user.3
 │   └── HBG/                         # Fluffy Mod Manager drop-in for HBG
 │       ├── modinfo.ini
-│       ├── natives/
-│       │   └── STM/GameDesign/
-│       │       ├── Common/Item/
-│       │       │   └── itemData.user.3              # Infinite ammo
-│       │       └── Player/ActionData/
-│       │           ├── Common/GlobalParam/Part/
-│       │           │   └── PlayerSkillParam.user.3  # Zero min crit distance
-│       │           └── Wp12/GlobalParam/
-│       │               └── Wp12GlobalActionParam.user.3  # Merge script output
-│       └── reframework/autorun/
-│           ├── fabg.lua + fabg/                     # Full-auto bowgun
-│           ├── BG_Ammo_Tweaks_-_15_Ammo_Cap_(HeavyBowgun).lua
-│           └── BG_Ammo_Tweaks_-_All_SL_Maxed_(HeavyBowgun).lua
+│       └── natives/
+│           └── STM/GameDesign/Player/ActionData/Wp12/GlobalParam/
+│               └── Wp12GlobalActionParam.user.3  # Merge script output
 ├── source/
 │   ├── BOW/
 │   │   ├── better-bow/
@@ -245,13 +220,6 @@ Export the merged file using the same JSON export script and diff it against you
 ### Bow mod
 - [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) by its original author
 - [Bow Plus Plus](https://www.nexusmods.com/monsterhunterwilds/mods/1905) by its original author
-
-### HBG mod
-- [Infinite Bowgun Ammo](https://www.nexusmods.com/monsterhunterwilds/mods/214) by its original author
-- [Bowgun Critical Distance Fixed](https://www.nexusmods.com/monsterhunterwilds/mods/3005) by its original author
-- [BG Ammo Tweaks](https://www.nexusmods.com/monsterhunterwilds/mods/3370) by LordGregory
-- [Full-Auto Bowguns](https://www.nexusmods.com/monsterhunterwilds/mods/1126) by its original author
-- [More Gatlin Fun](https://www.nexusmods.com/monsterhunterwilds/mods/1012) by its original author (energy cost rebalanced in our merge)
 
 ### Tools
 - [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/401) by Synthlight
