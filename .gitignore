@@ -1,0 +1,10 @@
+# Editor binaries (download separately)
+Editor/
+
+# System
+Thumbs.db
+.DS_Store
+
+# Temp
+*.tmp
+__pycache__/
