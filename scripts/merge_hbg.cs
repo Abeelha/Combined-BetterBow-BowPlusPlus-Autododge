@@ -45,6 +45,7 @@ root.EnergyLaserBullet_BasicData[0].MinUseEnergy = 12f; // vanilla=20
 // === PARRY BULLET (FOCUS BLAST) ===
 root.ParryBullet_BasicData[0].MinUseEnergy = 8f;        // vanilla=15
 root.ParryBulletRange = 9f;                              // vanilla=7
+root.ParryBulletColExtendTime = 0.35f;                  // vanilla=0.1 (counter active window — more forgiving timing)
 
 // === ENERGY GRENADE ===
 root.EnergyGrenadeBullet_BasicData[0].MinUseEnergy = 8f;    // vanilla=15
